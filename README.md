@@ -15,8 +15,9 @@ One will need to input the list of loot types as an array when prompted, and als
 
 # Simple usage example
 
+First, clone this repo, then cd into the directory containing the code.
 
-One simply runs the python file from the same directory containing the loot\_list.csv file and the img directory.
+One simply runs the python file therein.
 
 > python frosty_loot.py
 
