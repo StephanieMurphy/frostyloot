@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import random
 
-loot = pd.read_csv("/Users/sjm/code/frosthaven/loot_list.csv")
+loot = pd.read_csv("./loot_list.csv")
 
 coin = loot.query("type=='coin'").reset_index().drop(columns=["index"])
 lumber = loot.query("type=='lumber'").reset_index().drop(columns=["index"])

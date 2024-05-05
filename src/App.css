@@ -1,42 +1,141 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+html {
+  min-height: 100%;
+  background: linear-gradient(#e0f2fe, #e2e8f0) no-repeat;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.item {
+  display: flex;
+}
+
+.item-name {
+  width: 120px;
+  font-family: "Germania One", system-ui;
+}
+
+.item-count {
+  font-variant-numeric: tabular-nums;
+  width: 30px;
+  text-align: right;
+  padding: 0 8px;
+  font-family: "Germania One", system-ui;
+}
+
+.item-button {
+  background-color: #0284c7;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 2px 4px 4px -1px rgb(0 0 0 / 0.4);
+}
+
+.item-button:hover {
+  background-color: #075985;
+}
+
+.item-button:active {
+  background-color: #0369a1;
+}
+
+.item-button:disabled {
+  background-color: #075985;
+}
+
+.title {
+  font-family: "Germania One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 52px;
+  margin-top: 12px;
   text-align: center;
+  background: linear-gradient(#0c4a6e, #38bdf8);
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+    drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.generateButton {
+  background-color: #0078d0;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Germania One", system-ui;
+  font-size: 25px;
+  font-weight: 500;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  /* touch-action: manipulation; */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.generateButton:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s;
+  width: 92%;
+}
+
+.generateButton:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+    rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .generateButton {
+    padding: 16px 48px;
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.reset {
+  background-color: #0078d0;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  font-weight: 500;
+  outline: 0;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
+.reset:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+    rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
+  transform: scale(1.05);
 }
