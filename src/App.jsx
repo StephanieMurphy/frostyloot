@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import sampleSize from "lodash.samplesize";
+import clsx from "clsx";
 
 const cardTypes = [
   "coin",
@@ -124,6 +125,8 @@ function App() {
 
   const [randomAllCards, setRandomAllCards] = useState([]);
 
+  const [isError, setIsError] = useState(false);
+
   const allCards = randomCoin
     .concat(randomLumber)
     .concat(randomMetal)
@@ -240,19 +243,30 @@ function App() {
           setCount={setscenariocoinCount}
           max={maxScenariocoin}
         />
-        <div>Number of cards to draw</div>
+        <div className={clsx("slider-text", isError && "error")}>
+          Number of cards to draw
+        </div>
         <input
+          className="slider"
           type="range"
           min={0}
           max={max}
           value={sliderValue}
-          onChange={(e) => setsliderValue(e.target.value)}
+          onChange={(e) => {
+            setsliderValue(Number(e.target.value));
+            setIsError(false);
+          }}
         />
         <div>{sliderValue}</div>
 
         <button
           className="generateButton"
           onClick={() => {
+            if (sliderValue === 0) {
+              setIsError(true);
+            } else {
+              setIsError(false);
+            }
             const randomCards = sampleSize(allCards, sliderValue);
             setRandomAllCards(randomCards);
           }}
@@ -277,14 +291,15 @@ function App() {
             setscenariocoinCount(0);
             setsliderValue(0);
             setRandomAllCards([]);
+            setIsError(false);
           }}
         >
           Reset
         </button>
 
-        <div>
+        <div className="cardParent">
           {randomAllCards.map((card) => (
-            <img key={card} src={card} />
+            <img className="card" key={card} src={card} />
           ))}
         </div>
       </div>
